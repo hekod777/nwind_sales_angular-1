@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<script src='angular/angular.js'></script>
+	<script src='/app.js'></script>
+	<script src='/region/RegionsListCtrl.js'></script>
+	<script src='/region/RegionService.js'></script>
+	
+</head>
+<body ng-app='salesAngular'>
+	<div class='container'>
+	<h1>Acme Sales Angular</h1>
+		<ul class='nav nav-tabs'>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/region'>Regions</a></li>
+			<li><a href='/salesPeople'>SalesPeople</a></li>
+		</ul>
+	</div>	
+
+	<div class='container' ng-controller='regionsCtrl'>
+		<div class='well'>
+		<input class='form-control' placeholder='region zip' ng-model='zipcode' />
+		<br>
+		<button class='btn btn-primary' ng-click='create()'>Create Region</button>
+		</div>
+	</div>
+
+	<div class="container">
+		<ul class='list-group' ng-controller='regionsCtrl'>
+			<li class='list-group-item' ng-repeat='region in regions'>{{region.zip}} </li>
+		</ul>
+	</div>	
+
+
+
+</body>
+</html>
