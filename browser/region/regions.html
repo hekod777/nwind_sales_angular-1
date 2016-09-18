@@ -1,9 +1,16 @@
 <div class='container' ng-controller='CompanyStatusCtrl'>
 	<ul class='list-group'>
-		<div class= 'alert alert-success' ng-if='regions.length > 3'>
+
+<!-- 		<div class='alert alert-success' ng-if='regions.length > 3'> -->
+		<div>
 			<li class='list-group-item'  >We have {{regions.length}} regions</li>
-			<li class='list-group-item'  >We have {{salesPeople.length}} Sales People</li>
 		</div>
+<!-- 
+		<div class='alert alert-success' ng-if='salesPeople.length > 3'> -->
+		<div>
+			<li class='list-group-item'  >We have {{salesPeople.length}} sales people</li>
+		</div>
+
 	</ul>
 </div>
 

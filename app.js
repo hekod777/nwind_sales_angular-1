@@ -20,4 +20,4 @@ app.get('/', function(req,res,next){
 });
 
 app.use('/api/regions', require('./routes/regions'));
-// app.use('/api/salesPeople', require('./routes/salesPeople'));
+app.use('/api/salesPeople', require('./routes/salesPeople'));

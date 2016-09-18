@@ -1,22 +1,31 @@
 <div class='container' ng-controller='CompanyStatusCtrl'>
 	<ul class='list-group'>
-		<li class='list-group-item'>We have {{regions.length}} regions</li>
+
+<!-- 		<div class='alert alert-success' ng-if='regions.length > 3'> -->
+		<div>
+			<li class='list-group-item'  >We have {{regions.length}} regions</li>
+		</div>
+<!-- 
+		<div class='alert alert-success' ng-if='salesPeople.length > 3'> -->
+		<div>
+			<li class='list-group-item'  >We have {{salesPeople.length}} sales people</li>
+		</div>
+
 	</ul>
 </div>
 
-<div class='container' ng-controller='regionsCtrl'>
+<div class='container' ng-controller='SalesPersonCtrl'>
 	<div class='well'>
-	<input class='form-control' placeholder='region zip' ng-model='zipcode' />
+	<input class='form-control' placeholder='sales person name' ng-model='name'/>
 	<br>
-	<button class='btn btn-primary' ng-click='create()'>Create Region</button>
+	<button class='btn btn-primary' ng-click='create()'>Create Sales Person</button>
 	</div>
 </div>
 
 <div class="container">
-	<ul class='list-group' ng-controller='regionsCtrl'>
-		<li class='list-group-item' ng-repeat='region in regions'>{{region.zip}} 
-		{{region.id}}
-			<button class='btn btn-danger pull-right' ng-click='destroy(region)'>Delete
+	<ul class='list-group' ng-controller='SalesPersonCtrl'>
+		<li class='list-group-item' ng-repeat='salesPerson in salesPeople'>{{salesPerson.name}} 
+			<button class='btn btn-danger pull-right' ng-click='destroy(salesPerson)'>Delete
 			</button>
 			<br clear='all'>
 
