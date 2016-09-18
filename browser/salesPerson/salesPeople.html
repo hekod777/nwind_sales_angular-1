@@ -1,0 +1,25 @@
+<div class='container' ng-controller='CompanyStatusCtrl'>
+	<ul class='list-group'>
+		<li class='list-group-item'>We have {{regions.length}} regions</li>
+	</ul>
+</div>
+
+<div class='container' ng-controller='regionsCtrl'>
+	<div class='well'>
+	<input class='form-control' placeholder='region zip' ng-model='zipcode' />
+	<br>
+	<button class='btn btn-primary' ng-click='create()'>Create Region</button>
+	</div>
+</div>
+
+<div class="container">
+	<ul class='list-group' ng-controller='regionsCtrl'>
+		<li class='list-group-item' ng-repeat='region in regions'>{{region.zip}} 
+		{{region.id}}
+			<button class='btn btn-danger pull-right' ng-click='destroy(region)'>Delete
+			</button>
+			<br clear='all'>
+
+		</li>
+	</ul>
+</div>	

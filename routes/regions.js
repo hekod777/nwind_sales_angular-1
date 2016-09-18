@@ -24,3 +24,14 @@ router.post('/', function(req,res,next){
 	.catch(next);
 })
 
+router.delete('/:id', function(req,res,next){
+	Region.destroy({
+		where: {id: req.params.id}
+	})
+	.then(function(result){
+		console.log('destroyed region'); 
+		res.sendStatus(200);
+	})
+	.catch(next); 
+})
+

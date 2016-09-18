@@ -3,13 +3,22 @@ angular.module('salesAngular')
 		$scope.create = function(){
 			RegionService.create({zip: $scope.zipcode})
 			.then(function(region){
-				// console.log(region);
-				$scope.regions.push(region);
+				// $scope.regions.push(region);
 			})
 			.catch(function(err){
 				console.log(err);
 			});
 		};
+
+		$scope.destroy = function(region){
+			RegionService.destroy(region)
+			.then(function(){
+				console.log('region destroyed')
+			})
+			.catch(function(err){
+				console.log(err)
+			})
+		}
 
 
 		RegionService.findAll()

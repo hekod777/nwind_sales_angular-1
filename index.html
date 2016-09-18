@@ -3,20 +3,31 @@
 <head>
 	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
 	<script src='angular/angular.js'></script>
+	<script src='angular-ui-router/release/angular-ui-router.js'></script>
 	<script src='/app.js'></script>
 	<script src='/region/RegionsListCtrl.js'></script>
 	<script src='/region/RegionService.js'></script>
+	<script src='/CompanyStatusCtrl.js'></script>
 	
 </head>
 <body ng-app='salesAngular'>
 	<div class='container'>
 	<h1>Acme Sales Angular</h1>
 		<ul class='nav nav-tabs'>
-			<li><a href='/'>Home</a></li>
-			<li><a href='/region'>Regions</a></li>
-			<li><a href='/salesPeople'>SalesPeople</a></li>
+			<li ui-sref-active='active'><a ui-sref='home'>Home</a></li>
+			<li ui-sref-active='active'><a ui-sref='regions'>Regions</a></li>
+			<li ui-sref-active='active'><a ui-sref='salesPeople'>SalesPeople</a></li>
 		</ul>
 	</div>	
+
+	<br>
+
+	<ui-view></ui-view>
+<!-- 	<div class='container' ng-controller='CompanyStatusCtrl'>
+		<ul class='list-group'>
+			<li class='list-group-item'>We have {{regions.length}} regions</li>
+		</ul>
+	</div>
 
 	<div class='container' ng-controller='regionsCtrl'>
 		<div class='well'>
@@ -28,9 +39,15 @@
 
 	<div class="container">
 		<ul class='list-group' ng-controller='regionsCtrl'>
-			<li class='list-group-item' ng-repeat='region in regions'>{{region.zip}} </li>
+			<li class='list-group-item' ng-repeat='region in regions'>{{region.zip}} 
+			{{region.id}}
+				<button class='btn btn-danger pull-right' ng-click='destroy(region)'>Delete
+				</button>
+				<br clear='all'>
+
+			</li>
 		</ul>
-	</div>	
+	</div>	 -->
 
 
 
