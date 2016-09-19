@@ -3,7 +3,7 @@ angular.module('salesAngular')
 		$scope.create = function(){
 			RegionService.create({zip: $scope.zipcode})
 			.then(function(region){
-				// $scope.regions.push(region);
+				$scope.zipcode = '';
 			})
 			.catch(function(err){
 				console.log(err);

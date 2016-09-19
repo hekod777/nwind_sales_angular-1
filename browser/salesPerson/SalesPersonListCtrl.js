@@ -3,7 +3,7 @@ angular.module('salesAngular')
 		$scope.create = function(){
 			SalesPersonService.create({name: $scope.name})
 			.then(function(salesPerson){
-				// $scope.regions.push(region);
+				$scope.name = '';
 			})
 			.catch(function(err){
 				console.log(err);

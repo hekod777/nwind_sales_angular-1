@@ -1,16 +1,8 @@
 <div class='container' ng-controller='CompanyStatusCtrl'>
 	<ul class='list-group'>
+			<li class='list-group-item' ng-class="{'list-group-item-success': regions.length >3}">We have {{regions.length}} regions</li>		
 
-<!-- 		<div class='alert alert-success' ng-if='regions.length > 3'> -->
-		<div>
-			<li class='list-group-item'  >We have {{regions.length}} regions</li>
-		</div>
-<!-- 
-		<div class='alert alert-success' ng-if='salesPeople.length > 3'> -->
-		<div>
-			<li class='list-group-item'  >We have {{salesPeople.length}} sales people</li>
-		</div>
-
+			<li class='list-group-item' ng-class="{'list-group-item-success': salesPeople.length >3}" >We have {{salesPeople.length}} sales people</li>
 	</ul>
 </div>
 
@@ -18,14 +10,14 @@
 	<div class='well'>
 	<input class='form-control' placeholder='sales person name' ng-model='name'/>
 	<br>
-	<button class='btn btn-primary' ng-click='create()'>Create Sales Person</button>
+	<button ng-disabled='!name' class='btn btn-primary' ng-click='create()'>Create Sales Person</button>
 	</div>
 </div>
 
 <div class="container">
 	<ul class='list-group' ng-controller='SalesPersonCtrl'>
 		<li class='list-group-item' ng-repeat='salesPerson in salesPeople'>{{salesPerson.name}} 
-			<button class='btn btn-danger pull-right' ng-click='destroy(salesPerson)'>Delete
+			<button class='btn btn-danger pull-right' ng-click='destroy(salesPerson) '>Delete
 			</button>
 			<br clear='all'>
 

@@ -1,16 +1,8 @@
 <div class='container' ng-controller='CompanyStatusCtrl'>
 	<ul class='list-group'>
+			<li class='list-group-item' ng-class="{'list-group-item-success': regions.length >3}">We have {{regions.length}} regions</li>		
 
-<!-- 		<div class='alert alert-success' ng-if='regions.length > 3'> -->
-		<div>
-			<li class='list-group-item'  >We have {{regions.length}} regions</li>
-		</div>
-<!-- 
-		<div class='alert alert-success' ng-if='salesPeople.length > 3'> -->
-		<div>
-			<li class='list-group-item'  >We have {{salesPeople.length}} sales people</li>
-		</div>
-
+			<li class='list-group-item' ng-class="{'list-group-item-success': salesPeople.length >3}" >We have {{salesPeople.length}} sales people</li>
 	</ul>
 </div>
 
@@ -18,7 +10,7 @@
 	<div class='well'>
 	<input class='form-control' placeholder='region zip' ng-model='zipcode' />
 	<br>
-	<button class='btn btn-primary' ng-click='create()'>Create Region</button>
+	<button ng-disabled='!zipcode' class='btn btn-primary' ng-click='create()'>Create Region</button>
 	</div>
 </div>
 
