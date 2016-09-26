@@ -1,9 +1,9 @@
 angular.module('salesAngular')
-	.controller('regionsCtrl', function($scope,RegionService){
+	.controller('regionsCtrl', function($scope, RegionService){
 		$scope.create = function(){
-			RegionService.create({zip: $scope.zipcode})
+			RegionService.create($scope.region)
 			.then(function(region){
-				$scope.zipcode = '';
+        $scope.region = null;
 			})
 			.catch(function(err){
 				console.log(err);
@@ -13,22 +13,19 @@ angular.module('salesAngular')
 		$scope.destroy = function(region){
 			RegionService.destroy(region)
 			.then(function(){
-				console.log('region destroyed')
+				console.log('region destroyed');
 			})
 			.catch(function(err){
-				console.log(err)
-			})
-		}
+				console.log(err);
+			});
+		};
 
 
 		RegionService.findAll()
 		.then(function(regions){
-			// console.log(regions);
 			$scope.regions = regions;
 		})
 		.catch(function(err){
 			console.log(err);
 		});
-
-
-	})
+	});

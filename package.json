@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "PORT=3000 SYNC=true DATABASE_URL=postgres://localhost/sales_angular nodemon server",
+    "start:dev": "PORT=3000 SYNC=true DATABASE_URL=postgres://localhost/acme nodemon --ignore 'browser' server",
     "start": "node server"
   },
   "author": "",

@@ -1,30 +1,16 @@
-var Sequelize = require('sequelize');
+var db = require('./_db');
 
-var db = new Sequelize(process.env.DATABASE_URL);
+var Region = require('./region');
 
-db.authenticate().then(function(result){
-	console.log('db connection successful');
-});
-
-var Region = db.define('region', {
-	zip: {
-		type: Sequelize.INTEGER
-	}
-});
-
-var SalesPerson = db.define('salesPerson', {
-	name: {
-		type: Sequelize.STRING
-	}
-});
+var SalesPerson = require('./salesPerson');
 
 var sync = function(){
-	return db.sync({});
+	return db.sync({ force: true });
 };
 
 
 module.exports = {
-	models:{
+	models: {
 		Region: Region,
 		SalesPerson: SalesPerson
 	},

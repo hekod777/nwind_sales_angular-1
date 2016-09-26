@@ -4,19 +4,17 @@ angular.module('salesAngular')
 		var salesPeople = []; 
 
 		return{
-			create: function(name){
-				console.log(name);
-				return $http.post('/api/salesPeople', name)
+			create: function(salesPerson){
+				return $http.post('/api/salesPeople', salesPerson)
 				.then(function(result){
 					salesPeople.push(result.data); 
-					// return result.data;
 				});
 			},
 
 			findAll: function(){
 				return $http.get('/api/salesPeople')
 				.then(function(result){
-					angular.copy(result.data, salesPeople)
+					angular.copy(result.data, salesPeople);
 					return salesPeople;
 				})
 			}, 

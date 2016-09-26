@@ -4,12 +4,10 @@ angular.module('salesAngular')
 		var regions = []; 
 
 		return{
-			create: function(zip){
-				console.log(zip);
-				return $http.post('/api/regions', zip)
+			create: function(region){
+				return $http.post('/api/regions', region)
 				.then(function(result){
 					regions.push(result.data); 
-					// return result.data;
 				});
 			},
 
@@ -18,19 +16,15 @@ angular.module('salesAngular')
 				.then(function(result){
 					angular.copy(result.data, regions)
 					return regions;
-				})
+				});
 			}, 
 
 			destroy: function(region){
-				console.log(region);
 				return $http.delete('/api/regions/' + region.id)
 				.then(function(){
-					console.log(regions); 
-					// console.log('delete route done')
 					var idx = regions.indexOf(region); 
 					regions.splice(idx, 1); 
-
-				})
+				});
 			}
 
 

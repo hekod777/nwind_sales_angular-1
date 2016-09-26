@@ -7,11 +7,11 @@
 </div>
 
 <div class='container' ng-controller='SalesPersonCtrl'>
-	<div class='well'>
-	<input class='form-control' placeholder='sales person name' ng-model='name'/>
+	<form name='form' class='well'>
+	<input required class='form-control' placeholder='sales person name' ng-model='salesPerson.name'/>
 	<br>
-	<button ng-disabled='!name' class='btn btn-primary' ng-click='create()'>Create Sales Person</button>
-	</div>
+	<button ng-disabled='form.$invalid' class='btn btn-primary' ng-click='create()'>Create Sales Person</button>
+	</form>
 </div>
 
 <div class="container">

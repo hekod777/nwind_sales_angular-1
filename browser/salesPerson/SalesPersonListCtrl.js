@@ -1,9 +1,9 @@
 angular.module('salesAngular')
 	.controller('SalesPersonCtrl', function($scope,SalesPersonService){
 		$scope.create = function(){
-			SalesPersonService.create({name: $scope.name})
+			SalesPersonService.create($scope.salesPerson)
 			.then(function(salesPerson){
-				$scope.name = '';
+        $scope.salesPerson = null;
 			})
 			.catch(function(err){
 				console.log(err);

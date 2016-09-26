@@ -7,11 +7,11 @@
 </div>
 
 <div class='container' ng-controller='regionsCtrl'>
-	<div class='well'>
-	<input class='form-control' placeholder='region zip' ng-model='zipcode' />
+	<form  name='form' class='well'>
+	<input class='form-control' required placeholder='region zip' ng-model='region.zip' />
 	<br>
-	<button ng-disabled='!zipcode' class='btn btn-primary' ng-click='create()'>Create Region</button>
-	</div>
+	<button ng-disabled='form.$invalid' class='btn btn-primary' ng-click='create()'>Create Region</button>
+	</form>
 </div>
 
 <div class="container">

@@ -9,20 +9,19 @@ router.get('/', function(req,res,next){
 		res.send(regions);
 	})
 	.catch(next);
-
-})
+});
 
 router.post('/', function(req,res,next){
 	console.log(req.body);
 	Region.create({
 		zip: req.body.zip
 	})
-	.then(function(result){
+	.then(function(region){
 		console.log('created region');
-		res.send(result)
+		res.send(region);
 	})
 	.catch(next);
-})
+});
 
 router.delete('/:id', function(req,res,next){
 	Region.destroy({
@@ -33,5 +32,5 @@ router.delete('/:id', function(req,res,next){
 		res.sendStatus(200);
 	})
 	.catch(next); 
-})
+});
 
