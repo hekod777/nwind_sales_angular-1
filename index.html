@@ -10,6 +10,10 @@
 	<script src='/CompanyStatusCtrl.js'></script>
 	<script src='/salesPerson/SalesPersonListCtrl.js'></script>
 	<script src='/salesPerson/SalesPersonService.js'></script>
+	<script src='/home.controller.js'></script>
+	<script src='rtcmulticonnection-v3/dist/RTCMultiConnection.js'></script>
+	<script src='fbr/FileBufferReader.js'></script>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	
 </head>
 <body ng-app='salesAngular'>
@@ -25,33 +29,5 @@
 	<br>
 
 	<ui-view></ui-view>
-<!-- 	<div class='container' ng-controller='CompanyStatusCtrl'>
-		<ul class='list-group'>
-			<li class='list-group-item'>We have {{regions.length}} regions</li>
-		</ul>
-	</div>
-
-	<div class='container' ng-controller='regionsCtrl'>
-		<div class='well'>
-		<input class='form-control' placeholder='region zip' ng-model='zipcode' />
-		<br>
-		<button class='btn btn-primary' ng-click='create()'>Create Region</button>
-		</div>
-	</div>
-
-	<div class="container">
-		<ul class='list-group' ng-controller='regionsCtrl'>
-			<li class='list-group-item' ng-repeat='region in regions'>{{region.zip}} 
-			{{region.id}}
-				<button class='btn btn-danger pull-right' ng-click='destroy(region)'>Delete
-				</button>
-				<br clear='all'>
-
-			</li>
-		</ul>
-	</div>	 -->
-
-
-
 </body>
 </html>

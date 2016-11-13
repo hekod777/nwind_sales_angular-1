@@ -5,7 +5,8 @@ angular.module('salesAngular')
 		$stateProvider
 			.state('home', {
 				url: '/', 
-				templateUrl: '/home.html'
+				templateUrl: '/home.html',
+				controller: 'homeCtrl'
 			})
 			.state('regions', {
 				url: '/regions', 
