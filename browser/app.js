@@ -8,6 +8,11 @@ angular.module('salesAngular')
 				templateUrl: '/home.html',
 				controller: 'homeCtrl'
 			})
+			.state('broadcast', {
+				url: '/broadcast',
+				templateUrl: '/broadcast/broadcast.html',
+				controller: 'broadcastCtrl'
+			})
 			.state('regions', {
 				url: '/regions', 
 				templateUrl: '/region/regions.html'

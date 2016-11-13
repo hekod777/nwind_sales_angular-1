@@ -11,8 +11,9 @@
 	<script src='/salesPerson/SalesPersonListCtrl.js'></script>
 	<script src='/salesPerson/SalesPersonService.js'></script>
 	<script src='/home.controller.js'></script>
+	<script src='/broadcast/broadcast.controller.js'></script>
 	<script src='rtcmulticonnection-v3/dist/RTCMultiConnection.js'></script>
-	<script src='fbr/FileBufferReader.js'></script>
+	<script src="https://cdn.webrtc-experiment.com/FileBufferReader.js"></script>
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	
 </head>
@@ -21,6 +22,7 @@
 	<h1>Acme Sales Angular</h1>
 		<ul class='nav nav-tabs'>
 			<li ui-sref-active='active'><a ui-sref='home'>Home</a></li>
+			<li ui-sref-active='active'><a ui-sref='broadcast'>Broadcast</a></li>
 			<li ui-sref-active='active'><a ui-sref='regions'>Regions</a></li>
 			<li ui-sref-active='active'><a ui-sref='salesPeople'>SalesPeople</a></li>
 		</ul>
