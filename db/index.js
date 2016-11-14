@@ -6,16 +6,10 @@ db.authenticate().then(function(result){
 	console.log('db connection successful');
 });
 
-var Region = db.define('region', {
-	zip: {
-		type: Sequelize.INTEGER
-	}
+var User = db.define('user', {
 });
 
-var SalesPerson = db.define('salesPerson', {
-	name: {
-		type: Sequelize.STRING
-	}
+var Room = db.define('room', {
 });
 
 var sync = function(){
@@ -24,9 +18,5 @@ var sync = function(){
 
 
 module.exports = {
-	models:{
-		Region: Region,
-		SalesPerson: SalesPerson
-	},
 	sync: sync
 };
