@@ -7,9 +7,17 @@ db.authenticate().then(function(result){
 });
 
 var User = db.define('user', {
+	name: {
+		type: Sequelize.STRING,
+		allowNull: false
+	}
 });
 
 var Room = db.define('room', {
+	name: {
+		type: Sequelize.STRING,
+		allowNull: false
+	}
 });
 
 var sync = function(){
@@ -18,5 +26,9 @@ var sync = function(){
 
 
 module.exports = {
+	models: {
+		Room: Room,
+		User: User
+	},
 	sync: sync
 };

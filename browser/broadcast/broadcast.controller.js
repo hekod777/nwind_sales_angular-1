@@ -1,5 +1,7 @@
 angular.module('salesAngular')
   .controller('broadcastCtrl', function($scope){
+        var socket = io();
+        console.log('this loaded');
 	        // ......................................................
             // .......................UI Code........................
             // ......................................................
@@ -10,7 +12,9 @@ angular.module('salesAngular')
                     OfferToReceiveAudio: false,
                     OfferToReceiveVideo: false
                 };
-                connection.open(document.getElementById('room-id').value, function() {
+                var roomId = document.getElementById('room-id').value
+                connection.open(roomId, function(connect) {
+                    socket.emit('createRoom', { roomId: roomId, connectId: connect.id})
                     showRoomURL(connection.sessionid);
                 });
             };
