@@ -52,8 +52,8 @@ angular.module('salesAngular')
   // ......................................................
   var connection = new RTCMultiConnection();
   //free signal server
-  connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
-  // connection.socketURL = 'rtcmulticonnection-v3/server.js';
+  // connection.socketURL = 'https://rtcmulticonnection.herokuapp.com:443/';
+  connection.socketURL = '/rtcmulticonnection-v3/server.js';
   connection.enableFileSharing = true; // by default, it is "false".
   connection.session = {
     audio: true,
