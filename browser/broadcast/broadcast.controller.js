@@ -14,6 +14,7 @@ angular.module('salesAngular')
                 };
                 var roomId = document.getElementById('room-id').value
                 connection.open(roomId, function(connect) {
+                    console.log(roomId);
                     socket.emit('createRoom', { roomId: roomId, connectId: connect.id})
                     showRoomURL(connection.sessionid);
                 });

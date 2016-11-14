@@ -18,9 +18,10 @@ if(process.env.SYNC){
 io.on('connection', function(socket){
 
 	socket.on('createRoom', function(data){
+		console.log(data);
 		Room.create({ name: data.roomId })
 			.then(function(room){
-				console.log(chalk.green('Room Created', roomId));
+				console.log(chalk.green('Room Created', chalk.magenta(data.roomId)));
 			});
 	})
 	// putting these here for now.
