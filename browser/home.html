@@ -1,12 +1,18 @@
 <div class='container'>
 	<h1>Home</h1>
 
-<input type="text" id="room-id" value="abcdef">
-<button id="open-room">Open Room</button>
-<button id="join-room">Join Room</button>
-<button id="open-or-join-room">Auto Open Or Join Room</button>
+<input type="text" id="room-id" value="abcdef" ng-model="roomname">
+<button id="open-room" ng-disabled="disableOpenRoom" ng-click="openRoom()">Open Room</button>
+<button id="join-room" ng-disabled="disableJoinRoom" ng-click="joinRoom()">Join Room</button>
+<button id="open-or-join-room" ng-disabled="disableOpenJoin" ng-click="joinOpen()">Auto Open Or Join Room</button>
 <hr>
 
+<form name="tagform">
+	<input type="text" ng-model="tag">
+	<button ng-click="addTag()">add tag</button>
+</form>
+
+tags added: {{tags}}
 
 <div id="chat-container">
   <input type="text" id="input-text-chat" placeholder="Enter Text Chat">
@@ -16,5 +22,10 @@
   <div class="chat-output"></div>
 </div>
 <hr>
+
+
+
+<div id="video-container"></div>
+
 
 </div>
