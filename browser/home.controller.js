@@ -5,6 +5,8 @@ angular.module('salesAngular')
   $scope.disableJoinRoom = false;
   $scope.disableOpenJoin = false;
   $scope.tags = [];
+  //$scope.broadcasting = false;
+  //$scope.watching = false;
 
 
   // ......................................................
@@ -28,20 +30,77 @@ angular.module('salesAngular')
 
   var videoContainer = document.getElementById('video-container');
 
+  // connection.onstream = function(event) {
+  //   //document.body.appendChild(event.mediaElement);
+
+  //   var div = document.createElement('div');
+  //   div.className = 'video-div';
+  //   div.appendChild(event.mediaElement);
+
+  //   var h2= document.createElement('h2');
+  //   h2.innerHTML = event.extra.tags;
+  //   div.appendChild(h2);
+
+  //   videoContainer.appendChild(div);
+
+  // };
+
+  var localVideoContainer = document.getElementById('local-video-container');
+
+  var remoteVideoContainer = document.getElementById('remote-video-container');
+
   connection.onstream = function(event) {
     //document.body.appendChild(event.mediaElement);
 
-    var div = document.createElement('div');
-    div.className = 'video-div';
-    div.appendChild(event.mediaElement);
+    // var div = document.createElement('div');
+    // div.className = 'video-div';
+    // div.appendChild(event.mediaElement);
 
-    var h2= document.createElement('h2');
-    h2.innerHTML = event.extra.tags;
-    div.appendChild(h2);
+    // var h2= document.createElement('h2');
+    // h2.innerHTML = event.extra.tags;
+    // div.appendChild(h2);
 
-    videoContainer.appendChild(div);
+    // videoContainer.appendChild(div);
+
+    var video = event.mediaElement;
+
+    // if(event.type === 'local'){
+    //   var div = document.createElement('div');
+    //   div.className = 'video-div';
+    //   div.appendChild(event.mediaElement);
+
+    //   // var h2= document.createElement('h2');
+    //   // h2.innerHTML = event.extra.tags;
+    //   // div.appendChild(h2);
+
+    //   localVideoContainer.appendChild(div);      
+    //  }
+
+     if(event.type==='remote'){
+      var div = document.createElement('div');
+      div.className = 'video-div';
+      div.appendChild(event.mediaElement);
+
+      var h2= document.createElement('h2');
+      h2.innerHTML = event.extra.tags;
+      div.appendChild(h2);
+
+      remoteVideoContainer.appendChild(div);   
+     }
+
+
 
   };
+
+
+
+
+
+  // read it !! rtcmulticonnection.onstream event
+
+
+
+
 
   connection.extra = {
     category:'',
@@ -67,13 +126,28 @@ angular.module('salesAngular')
   // };
 
   $scope.openRoom = function() {
+
+  connection.session = {
+    audio: true,
+    video: true,
+    data: true,
+    broadcast:true,
+    oneway:true,
+  };
+
+
+
     $scope.disableOpenRoom = true;
     connection.open($scope.roomname);
+    $scope.broadcasting = true;
+    //$scope.watching = false;
   };
 
   $scope.joinRoom = function() {
     $scope.disableJoinRoom = true;
     connection.join($scope.roomname);
+    $scope.broadcasting = false;
+    //$scope.watching = true;
   };
 
   $scope.joinOpen = function() {

@@ -5,7 +5,18 @@ var Room = require('./db').models.Room;
 var io = require('socket.io')(server);
 var chalk = require('chalk');
 
-if(process.env.SYNC){
+// if(process.env.SYNC){
+// 	db.sync()
+// 	.then(function(){
+// 		console.log('db synced');
+// 	})
+// 	.catch(function(err){
+// 		console.log(err);
+// 	});
+// }
+
+
+if(100>1){
 	db.sync()
 	.then(function(){
 		console.log('db synced');
@@ -14,6 +25,8 @@ if(process.env.SYNC){
 		console.log(err);
 	});
 }
+
+
 
 io.on('connection', function(socket){
 

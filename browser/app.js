@@ -11,6 +11,12 @@ angular.module('salesAngular')
 			.state('broadcast', {
 				url: '/broadcast',
 				templateUrl: '/broadcast/broadcast.html',
+				resolve:{
+					channels: function(BroadCastFactory){
+						//console.log("finding");
+						return BroadCastFactory.findAllRooms();
+					}
+				},
 				controller: 'broadcastCtrl'
 			})
 			.state('regions', {

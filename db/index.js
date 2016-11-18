@@ -17,8 +17,50 @@ var Room = db.define('room', {
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false
+	},
+	// view: {
+	// 	type: Sequelize.INTEGER,
+	// 	defaultValue:0,
+	// },
+	// category:{
+	// 	type:Sequelize.STRING,
+	// },
+	// tags: {
+	// 	type: Sequelize.ARRAY(Sequelize.TEXT),
+	// },
+	// coverimage:{
+	// 	type:Sequelize.STRING,
+	// },
+});
+
+var Dog = db.define('dog',{
+	name:{
+		type:Sequelize.STRING,
 	}
 });
+
+var Channel = db.define('channel', {
+	name: {
+		type: Sequelize.STRING,
+		allowNull: false
+	},
+	view: {
+		type: Sequelize.INTEGER,
+		defaultValue:0,
+	},
+	category:{
+		type:Sequelize.STRING,
+	},
+	tags: {
+		type: Sequelize.ARRAY(Sequelize.TEXT),
+	},
+	coverimage:{
+		type:Sequelize.STRING,
+	},
+});
+
+
+
 
 var sync = function(){
 	return db.sync({});
@@ -28,7 +70,9 @@ var sync = function(){
 module.exports = {
 	models: {
 		Room: Room,
-		User: User
+		User: User,
+		Dog: Dog,
+		Channel: Channel,
 	},
 	sync: sync
 };
