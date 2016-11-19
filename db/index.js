@@ -18,19 +18,6 @@ var Room = db.define('room', {
 		type: Sequelize.STRING,
 		allowNull: false
 	},
-	// view: {
-	// 	type: Sequelize.INTEGER,
-	// 	defaultValue:0,
-	// },
-	// category:{
-	// 	type:Sequelize.STRING,
-	// },
-	// tags: {
-	// 	type: Sequelize.ARRAY(Sequelize.TEXT),
-	// },
-	// coverimage:{
-	// 	type:Sequelize.STRING,
-	// },
 });
 
 var Dog = db.define('dog',{
@@ -39,7 +26,7 @@ var Dog = db.define('dog',{
 	}
 });
 
-var Channel = db.define('channel', {
+var Channel = db.define('channel', { // this channel database is the one we need to use
 	name: {
 		type: Sequelize.STRING,
 		allowNull: false
